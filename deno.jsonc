@@ -3,6 +3,6 @@
     "exclude": ["**/*.js"]
   },
   "fmt": {
-    "exclude": ["*.md", "**/*.js"]
+    "exclude": ["**/*.md", "**/*.js"]
   }
 }

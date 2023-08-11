@@ -1,10 +1,11 @@
 // fgo remove-start
 import type {
-  IPatch,
   ILineDiff,
+  IPatch,
 } from "https://raw.githubusercontent.com/fensak-io/fgo/e0ad4415939abda375c81c41636b6f5bd113a1a3/patch/patch_types.ts";
 // fgo remove-end
 
+// deno-lint-ignore no-unused-vars
 function main(inp: IPatch[]): boolean {
   const numPatches: number = inp.length;
   if (numPatches == 0) {
