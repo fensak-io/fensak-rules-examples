@@ -1,15 +1,19 @@
 import { assertEquals } from "https://deno.land/std@0.197.0/testing/asserts.ts";
-
 import {
+  compileRuleFn,
   IGitHubRepository,
   patchFromGitHubPullRequest,
+  RuleFnSourceLang,
   RuleLogMode,
   runRule,
 } from "https://raw.githubusercontent.com/fensak-io/fgo/e0ad4415939abda375c81c41636b6f5bd113a1a3/mod.ts";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
-const ruleFn = await Deno.readTextFile(`${__dirname}/rules.js`);
+const ruleFn = compileRuleFn(
+  await Deno.readTextFile(`${__dirname}/rules.ts`),
+  RuleFnSourceLang.Typescript,
+);
 const octokit = new Octokit();
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
