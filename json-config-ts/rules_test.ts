@@ -6,7 +6,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "https://raw.githubusercontent.com/fensak-io/fgo/e0ad4415939abda375c81c41636b6f5bd113a1a3/mod.ts";
+} from "https://raw.githubusercontent.com/fensak-io/fensak/7df207f8f1e5ea1b76e338cf309dc1e9516c9c9d/mod.ts";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
@@ -17,7 +17,7 @@ const ruleFn = compileRuleFn(
 const octokit = new Octokit();
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
-  name: "test-fgo-rules-engine",
+  name: "test-fensak-rules-engine",
 };
 const opts = { logMode: RuleLogMode.Console };
 
@@ -28,7 +28,7 @@ Deno.test("No changes", async () => {
 
 Deno.test("Change to subapp version", async () => {
   // View PR at
-  // https://github.com/fensak-test/test-fgo-rules-engine/pull/1
+  // https://github.com/fensak-test/test-fensak-rules-engine/pull/1
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 1);
   const result = await runRule(ruleFn, patches.patchList, opts);
   assertEquals(result.approve, true);
@@ -36,7 +36,7 @@ Deno.test("Change to subapp version", async () => {
 
 Deno.test("Change to subapp version, but not semantic", async () => {
   // View PR at
-  // https://github.com/fensak-test/test-fgo-rules-engine/pull/26
+  // https://github.com/fensak-test/test-fensak-rules-engine/pull/26
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 26);
   const result = await runRule(ruleFn, patches.patchList, opts);
   assertEquals(result.approve, false);
@@ -44,7 +44,7 @@ Deno.test("Change to subapp version, but not semantic", async () => {
 
 Deno.test("Change to multiple config", async () => {
   // View PR at
-  // https://github.com/fensak-test/test-fgo-rules-engine/pull/2
+  // https://github.com/fensak-test/test-fensak-rules-engine/pull/2
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 2);
   const result = await runRule(ruleFn, patches.patchList, opts);
   assertEquals(result.approve, false);
@@ -52,7 +52,7 @@ Deno.test("Change to multiple config", async () => {
 
 Deno.test("Change to an unrelated file", async () => {
   // View PR at
-  // https://github.com/fensak-test/test-fgo-rules-engine/pull/11
+  // https://github.com/fensak-test/test-fensak-rules-engine/pull/11
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 11);
   const result = await runRule(ruleFn, patches.patchList, opts);
   assertEquals(result.approve, false);
@@ -60,7 +60,7 @@ Deno.test("Change to an unrelated file", async () => {
 
 Deno.test("Remove config file", async () => {
   // View PR at
-  // https://github.com/fensak-test/test-fgo-rules-engine/pull/22
+  // https://github.com/fensak-test/test-fensak-rules-engine/pull/22
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 22);
   const result = await runRule(ruleFn, patches.patchList, opts);
   assertEquals(result.approve, false);

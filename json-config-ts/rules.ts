@@ -1,9 +1,9 @@
-// fgo remove-start
+// fensak remove-start
 import type {
   ILineDiff,
   IPatch,
-} from "https://raw.githubusercontent.com/fensak-io/fgo/e0ad4415939abda375c81c41636b6f5bd113a1a3/patch/patch_types.ts";
-// fgo remove-end
+} from "https://raw.githubusercontent.com/fensak-io/fensak/7df207f8f1e5ea1b76e338cf309dc1e9516c9c9d/patch/patch_types.ts";
+// fensak remove-end
 
 // deno-lint-ignore no-unused-vars
 function main(inp: IPatch[]): boolean {

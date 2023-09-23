@@ -1,6 +1,6 @@
-# Fensak GO Rules Examples
+# Fensak Rules Examples
 
-This repository contains examples of auto-approve rules for Fensak GO. Each folder represents an example use case and
+This repository contains examples of auto-approve rules for Fensak. Each folder represents an example use case and
 contains:
 
 - `README.md` describing the use case.
