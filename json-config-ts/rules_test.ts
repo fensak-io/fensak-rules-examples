@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.197.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.202.0/testing/asserts.ts";
 import {
   compileRuleFn,
   IGitHubRepository,
@@ -6,7 +6,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "https://raw.githubusercontent.com/fensak-io/fensak/7df207f8f1e5ea1b76e338cf309dc1e9516c9c9d/mod.ts";
+} from "https://raw.githubusercontent.com/fensak-io/fensak/v0.1.0/mod.ts";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
