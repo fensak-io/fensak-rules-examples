@@ -6,7 +6,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "https://raw.githubusercontent.com/fensak-io/fensak/v0.1.0/mod.ts";
+} from "npm:@fensak-io/reng@^1.0.7";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;

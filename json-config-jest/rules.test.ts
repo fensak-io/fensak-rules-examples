@@ -1,15 +1,18 @@
-import { assertEquals } from "https://deno.land/std@0.202.0/testing/asserts.ts";
+import fs from "node:fs";
 
+import { expect, test } from "@jest/globals";
 import {
+  compileRuleFn,
   IGitHubRepository,
   patchFromGitHubPullRequest,
+  RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.0.7";
-import { Octokit } from "npm:@octokit/rest@^20.0.0";
+} from "@fensak-io/reng";
+import { Octokit } from "@octokit/rest";
 
-const __dirname = new URL(".", import.meta.url).pathname;
-const ruleFn = await Deno.readTextFile(`${__dirname}/rules.js`);
+const ruleFnSrc = fs.readFileSync(`${__dirname}/rules.ts`, "utf8");
+const ruleFn = compileRuleFn(ruleFnSrc, RuleFnSourceLang.Typescript);
 const octokit = new Octokit();
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
@@ -17,47 +20,47 @@ const testRepo: IGitHubRepository = {
 };
 const opts = { logMode: RuleLogMode.Console };
 
-Deno.test("No changes", async () => {
+test("No changes", async () => {
   const result = await runRule(ruleFn, [], opts);
-  assertEquals(result.approve, true);
+  expect(result.approve).toBe(true);
 });
 
-Deno.test("Change to subapp version", async () => {
+test("Change to subapp version", async () => {
   // View PR at
   // https://github.com/fensak-test/test-fensak-rules-engine/pull/1
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 1);
   const result = await runRule(ruleFn, patches.patchList, opts);
-  assertEquals(result.approve, true);
+  expect(result.approve).toBe(true);
 });
 
-Deno.test("Change to subapp version, but not semantic", async () => {
+test("Change to subapp version, but not semantic", async () => {
   // View PR at
   // https://github.com/fensak-test/test-fensak-rules-engine/pull/26
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 26);
   const result = await runRule(ruleFn, patches.patchList, opts);
-  assertEquals(result.approve, false);
+  expect(result.approve).toBe(false);
 });
 
-Deno.test("Change to multiple config", async () => {
+test("Change to multiple config", async () => {
   // View PR at
   // https://github.com/fensak-test/test-fensak-rules-engine/pull/2
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 2);
   const result = await runRule(ruleFn, patches.patchList, opts);
-  assertEquals(result.approve, false);
+  expect(result.approve).toBe(false);
 });
 
-Deno.test("Change to an unrelated file", async () => {
+test("Change to an unrelated file", async () => {
   // View PR at
   // https://github.com/fensak-test/test-fensak-rules-engine/pull/11
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 11);
   const result = await runRule(ruleFn, patches.patchList, opts);
-  assertEquals(result.approve, false);
+  expect(result.approve).toBe(false);
 });
 
-Deno.test("Remove config file", async () => {
+test("Remove config file", async () => {
   // View PR at
   // https://github.com/fensak-test/test-fensak-rules-engine/pull/22
   const patches = await patchFromGitHubPullRequest(octokit, testRepo, 22);
   const result = await runRule(ruleFn, patches.patchList, opts);
-  assertEquals(result.approve, false);
+  expect(result.approve).toBe(false);
 });

@@ -7,3 +7,13 @@ true:
 - The change is to the file `appversions.json` file.
 - Only the `subapp_version` key is updated.
 - The `subapp_version` key has been updated to a semantic version.
+
+
+## Running the tests
+
+The tests are written in [TypeScript](https://www.typescriptlang.org/) targeting [Deno](https://deno.land/). To run the
+tests for this rule, install deno and use the following flags:
+
+```
+deno test --allow-read --allow-env --allow-net
+```
