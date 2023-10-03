@@ -1,8 +1,19 @@
 {
   "lint": {
-    "exclude": ["**/*.js"]
+    "exclude": [
+      "**/*.js",
+      "**/.eslintrc.cjs",
+      "**/.prettierrc.cjs",
+      "json-config-jest/*"
+    ]
   },
   "fmt": {
-    "exclude": ["**/*.md", "**/*.js"]
+    "exclude": [
+      "**/*.md",
+      "**/*.js",
+      "**/.eslintrc.cjs",
+      "**/.prettierrc.cjs",
+      "json-config-jest/*"
+    ]
   }
 }

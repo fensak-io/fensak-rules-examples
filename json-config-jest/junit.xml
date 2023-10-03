@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="3.545">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-10-03T21:54:28" time="3.507" tests="6">
+    <testcase classname=" No changes" name=" No changes" time="0.065">
+    </testcase>
+    <testcase classname=" Change to subapp version" name=" Change to subapp version" time="0.466">
+    </testcase>
+    <testcase classname=" Change to subapp version, but not semantic" name=" Change to subapp version, but not semantic" time="0.355">
+    </testcase>
+    <testcase classname=" Change to multiple config" name=" Change to multiple config" time="0.323">
+    </testcase>
+    <testcase classname=" Change to an unrelated file" name=" Change to an unrelated file" time="0.228">
+    </testcase>
+    <testcase classname=" Remove config file" name=" Remove config file" time="0.26">
+    </testcase>
+  </testsuite>
+</testsuites>

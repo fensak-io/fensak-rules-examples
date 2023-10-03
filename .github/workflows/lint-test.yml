@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   # Run linter and tests against JS, TS, and YAML files
-  linttest:
+  linttestdeno:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
@@ -30,7 +30,10 @@ jobs:
         run: deno lint
 
       - name: test
-        run: deno test --allow-env --allow-read --allow-net --reporter=junit --junit-path=./report.xml
+        run: |
+          deno test --ignore=./json-config-jest \
+            --allow-env --allow-read --allow-net \
+            --reporter=junit --junit-path=./report.xml
 
       - name: report
         uses: mikepenz/action-junit-report@75b84e78b3f0aaea7ed7cf8d1d100d7f97f963ec # v4.0.0
@@ -38,3 +41,37 @@ jobs:
         with:
           report_paths: "report.xml"
           check_name: "deno test report"
+
+  linttestjest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+        with:
+          node-version: "lts/*"
+
+      - uses: pnpm/action-setup@d882d12c64e032187b2edb46d3a0d003b7a43598
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: install dependencies
+        working-directory: "./json-config-jest"
+        run: pnpm install --frozen-lockfile
+
+      - name: lint
+        working-directory: "./json-config-jest"
+        run: pnpm lint
+
+      - name: test
+        working-directory: "./json-config-jest"
+        run: pnpm test
+
+      - name: report
+        uses: mikepenz/action-junit-report@75b84e78b3f0aaea7ed7cf8d1d100d7f97f963ec # v4.0.0
+        if: always()
+        with:
+          report_paths: "./json-config-jest/junit.xml"
+          check_name: "jest test report"
