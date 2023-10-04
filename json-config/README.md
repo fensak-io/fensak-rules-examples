@@ -1,6 +1,6 @@
 # Auto approve based on changes in a JSON config file
 
-This folder contains an example Fensak GO rule that checks for changes to a JSON
+This folder contains an example Fensak rule that checks for changes to a JSON
 config file. The rule will only allow the change if all of the following is
 true:
 
