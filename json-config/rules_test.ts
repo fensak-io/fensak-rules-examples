@@ -5,7 +5,7 @@ import {
   patchFromGitHubPullRequest,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.1.2";
+} from "npm:@fensak-io/reng@^1.1.3";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
@@ -18,7 +18,10 @@ const testRepo: IGitHubRepository = {
 const opts = { logMode: RuleLogMode.Console };
 
 Deno.test("No changes", async () => {
-  const result = await runRule(ruleFn, [], { sourceBranch: "foo" }, opts);
+  const result = await runRule(ruleFn, [], {
+    sourceBranch: "foo",
+    targetBranch: "bar",
+  }, opts);
   assertEquals(result.approve, true);
 });
 
