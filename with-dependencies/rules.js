@@ -1,7 +1,7 @@
 import find from 'lodash.find';
 
 // If there are any changes that are not updates to the README, then reject.
-function main(inp) {
+function main(inp, metadata) {
   const found = find(
     inp,
     (x) => {

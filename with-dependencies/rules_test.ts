@@ -7,7 +7,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.0.7";
+} from "npm:@fensak-io/reng@^1.1.2";
 
 // NOTE
 // we run the test on the compiled rules, not the source rules, since only the compiled version has all the dependencies
@@ -55,18 +55,26 @@ const configPatch = {
     }],
   }],
 };
+const metadata = {
+  sourceBranch: "foo",
+};
 
 Deno.test("No changes", async () => {
-  const result = await runRule(ruleFn, [], opts);
+  const result = await runRule(ruleFn, [], metadata, opts);
   assertEquals(result.approve, true);
 });
 
 Deno.test("Change to readme", async () => {
-  const result = await runRule(ruleFn, [readmePatch], opts);
+  const result = await runRule(ruleFn, [readmePatch], metadata, opts);
   assertEquals(result.approve, true);
 });
 
 Deno.test("Change to readme and config", async () => {
-  const result = await runRule(ruleFn, [readmePatch, configPatch], opts);
+  const result = await runRule(
+    ruleFn,
+    [readmePatch, configPatch],
+    metadata,
+    opts,
+  );
   assertEquals(result.approve, false);
 });

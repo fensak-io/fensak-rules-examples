@@ -1,4 +1,4 @@
-function main(inp) {
+function main(inp, _metadata) {
   if (inp.length == 0) {
     // No files updated, so approve.
     console.log("Accepting since no changes.");
