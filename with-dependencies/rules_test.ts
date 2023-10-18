@@ -7,7 +7,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.1.2";
+} from "npm:@fensak-io/reng@^1.1.3";
 
 // NOTE
 // we run the test on the compiled rules, not the source rules, since only the compiled version has all the dependencies
@@ -57,6 +57,7 @@ const configPatch = {
 };
 const metadata = {
   sourceBranch: "foo",
+  targetBranch: "bar",
 };
 
 Deno.test("No changes", async () => {
