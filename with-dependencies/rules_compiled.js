@@ -2363,7 +2363,7 @@ var lodash_findExports = lodash_find.exports;
 var find = /*@__PURE__*/getDefaultExportFromCjs(lodash_findExports);
 
 // If there are any changes that are not updates to the README, then reject.
-function main(inp) {
+function main(inp, metadata) {
   var found = find(inp, function (x) {
     return x.op != "modified" || x.path != "README.md";
   });
