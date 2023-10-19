@@ -1,11 +1,12 @@
 import { assertEquals } from "https://deno.land/std@0.202.0/testing/asserts.ts";
 
 import {
+  emptyChangeSetMetadata,
   IGitHubRepository,
   patchFromGitHubPullRequest,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.1.3";
+} from "npm:@fensak-io/reng@^1.2.0";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
@@ -18,10 +19,7 @@ const testRepo: IGitHubRepository = {
 const opts = { logMode: RuleLogMode.Console };
 
 Deno.test("No changes", async () => {
-  const result = await runRule(ruleFn, [], {
-    sourceBranch: "foo",
-    targetBranch: "bar",
-  }, opts);
+  const result = await runRule(ruleFn, [], emptyChangeSetMetadata, opts);
   assertEquals(result.approve, true);
 });
 

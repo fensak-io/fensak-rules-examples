@@ -2,7 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:@fensak-io/reng@^1.1.3": "npm:@fensak-io/reng@1.1.3_@babel+core@7.23.2",
+      "npm:@fensak-io/reng@^1.2.0": "npm:@fensak-io/reng@1.2.0_@babel+core@7.23.2",
       "npm:@octokit/rest@^20.0.0": "npm:@octokit/rest@20.0.2_@octokit+core@5.0.1"
     },
     "npm": {
@@ -944,12 +944,20 @@
           "to-fast-properties": "to-fast-properties@2.0.0"
         }
       },
-      "@fensak-io/reng@1.1.3_@babel+core@7.23.2": {
-        "integrity": "sha512-HYj4a/ws7y6iKQiM1gVNobulW7qYUCu8fGnkW3izKJSF5o9GAadgrTsG/mGVTaNc/+FGSo1lyiqTw+W5BGpwhQ==",
+      "@fensak-io/front-matter@1.0.0": {
+        "integrity": "sha512-9LjvcRQXpA9/KoKFlhmQtxFJz+zC498hf4lAt4JmwNgbzpDPdFSWAb0IMRMMq/4lwtlnpTYG5nBCiJsSMI3tYw==",
+        "dependencies": {
+          "toml": "toml@3.0.0",
+          "yaml": "yaml@2.3.3"
+        }
+      },
+      "@fensak-io/reng@1.2.0_@babel+core@7.23.2": {
+        "integrity": "sha512-p0ZxB17XshcNf0rfzSeQkECrPOtoBt6l17FTbFeDXeDjTizgLD9lqW1UjpaAoQ/zcs7+0FQmI1FJ07WonGAs/A==",
         "dependencies": {
           "@babel/core": "@babel/core@7.23.2",
           "@babel/preset-env": "@babel/preset-env@7.23.2_@babel+core@7.23.2",
           "@babel/preset-typescript": "@babel/preset-typescript@7.23.2_@babel+core@7.23.2",
+          "@fensak-io/front-matter": "@fensak-io/front-matter@1.0.0",
           "@octokit/rest": "@octokit/rest@20.0.2_@octokit+core@5.0.1",
           "babel-preset-minify": "babel-preset-minify@0.5.2"
         }
@@ -1276,14 +1284,14 @@
       "browserslist@4.22.1": {
         "integrity": "sha512-FEVc202+2iuClEhZhrWy6ZiAcRLvNMyYcxZ8raemul1DYVOVdFsbqckWLdsixQZCpJlwe77Z3UTalE7jsjnKfQ==",
         "dependencies": {
-          "caniuse-lite": "caniuse-lite@1.0.30001550",
-          "electron-to-chromium": "electron-to-chromium@1.4.557",
+          "caniuse-lite": "caniuse-lite@1.0.30001551",
+          "electron-to-chromium": "electron-to-chromium@1.4.559",
           "node-releases": "node-releases@2.0.13",
           "update-browserslist-db": "update-browserslist-db@1.0.13_browserslist@4.22.1"
         }
       },
-      "caniuse-lite@1.0.30001550": {
-        "integrity": "sha512-p82WjBYIypO0ukTsd/FG3Xxs+4tFeaY9pfT4amQL8KWtYH7H9nYwReGAbMTJ0hsmRO8IfDtsS6p3ZWj8+1c2RQ==",
+      "caniuse-lite@1.0.30001551": {
+        "integrity": "sha512-vtBAez47BoGMMzlbYhfXrMV1kvRF2WP/lqiMuDu1Sb4EE4LKEgjopFDSRtZfdVnslNRpOqV/woE+Xgrwj6VQlg==",
         "dependencies": {}
       },
       "chalk@2.4.2": {
@@ -1324,8 +1332,8 @@
         "integrity": "sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==",
         "dependencies": {}
       },
-      "electron-to-chromium@1.4.557": {
-        "integrity": "sha512-6x0zsxyMXpnMJnHrondrD3SuAeKcwij9S+83j2qHAQPXbGTDDfgImzzwgGlzrIcXbHQ42tkG4qA6U860cImNhw==",
+      "electron-to-chromium@1.4.559": {
+        "integrity": "sha512-iS7KhLYCSJbdo3rUSkhDTVuFNCV34RKs2UaB9Ecr7VlqzjjWW//0nfsFF5dtDmyXlZQaDYYtID5fjtC/6lpRug==",
         "dependencies": {}
       },
       "escalade@3.1.1": {
@@ -1481,6 +1489,10 @@
         "integrity": "sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==",
         "dependencies": {}
       },
+      "toml@3.0.0": {
+        "integrity": "sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==",
+        "dependencies": {}
+      },
       "unicode-canonical-property-names-ecmascript@2.0.0": {
         "integrity": "sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==",
         "dependencies": {}
@@ -1518,6 +1530,10 @@
       },
       "yallist@3.1.1": {
         "integrity": "sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==",
+        "dependencies": {}
+      },
+      "yaml@2.3.3": {
+        "integrity": "sha512-zw0VAJxgeZ6+++/su5AFoqBbZbrEakwu+X0M5HmcwUiBL7AzcuPKjj5we4xfQLp78LkEMpD0cOnUhmgOVy3KdQ==",
         "dependencies": {}
       }
     }

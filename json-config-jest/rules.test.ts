@@ -8,6 +8,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
+  emptyChangeSetMetadata,
 } from "@fensak-io/reng";
 import { Octokit } from "@octokit/rest";
 
@@ -21,12 +22,7 @@ const testRepo: IGitHubRepository = {
 const opts = { logMode: RuleLogMode.Console };
 
 test("No changes", async () => {
-  const result = await runRule(
-    ruleFn,
-    [],
-    { sourceBranch: "foo", targetBranch: "bar" },
-    opts,
-  );
+  const result = await runRule(ruleFn, [], emptyChangeSetMetadata, opts);
   expect(result.approve).toBe(true);
 });
 

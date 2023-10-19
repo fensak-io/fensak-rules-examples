@@ -2,12 +2,13 @@ import { assertEquals } from "https://deno.land/std@0.202.0/testing/asserts.ts";
 
 import {
   compileRuleFn,
+  emptyChangeSetMetadata,
   LineOp,
   PatchOp,
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.1.3";
+} from "npm:@fensak-io/reng@^1.2.0";
 
 // NOTE
 // we run the test on the compiled rules, not the source rules, since only the compiled version has all the dependencies
@@ -55,18 +56,19 @@ const configPatch = {
     }],
   }],
 };
-const metadata = {
-  sourceBranch: "foo",
-  targetBranch: "bar",
-};
 
 Deno.test("No changes", async () => {
-  const result = await runRule(ruleFn, [], metadata, opts);
+  const result = await runRule(ruleFn, [], emptyChangeSetMetadata, opts);
   assertEquals(result.approve, true);
 });
 
 Deno.test("Change to readme", async () => {
-  const result = await runRule(ruleFn, [readmePatch], metadata, opts);
+  const result = await runRule(
+    ruleFn,
+    [readmePatch],
+    emptyChangeSetMetadata,
+    opts,
+  );
   assertEquals(result.approve, true);
 });
 
@@ -74,7 +76,7 @@ Deno.test("Change to readme and config", async () => {
   const result = await runRule(
     ruleFn,
     [readmePatch, configPatch],
-    metadata,
+    emptyChangeSetMetadata,
     opts,
   );
   assertEquals(result.approve, false);
