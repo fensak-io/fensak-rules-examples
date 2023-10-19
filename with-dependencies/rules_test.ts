@@ -8,7 +8,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.2.0";
+} from "npm:@fensak-io/reng@^1.2.1";
 
 // NOTE
 // we run the test on the compiled rules, not the source rules, since only the compiled version has all the dependencies

@@ -6,7 +6,7 @@ import {
   patchFromGitHubPullRequest,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.2.0";
+} from "npm:@fensak-io/reng@^1.2.1";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;

@@ -2,7 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:@fensak-io/reng@^1.2.0": "npm:@fensak-io/reng@1.2.0_@babel+core@7.23.2",
+      "npm:@fensak-io/reng@^1.2.1": "npm:@fensak-io/reng@1.2.1_@babel+core@7.23.2",
       "npm:@octokit/rest@^20.0.0": "npm:@octokit/rest@20.0.2_@octokit+core@5.0.1"
     },
     "npm": {
@@ -951,8 +951,8 @@
           "yaml": "yaml@2.3.3"
         }
       },
-      "@fensak-io/reng@1.2.0_@babel+core@7.23.2": {
-        "integrity": "sha512-p0ZxB17XshcNf0rfzSeQkECrPOtoBt6l17FTbFeDXeDjTizgLD9lqW1UjpaAoQ/zcs7+0FQmI1FJ07WonGAs/A==",
+      "@fensak-io/reng@1.2.1_@babel+core@7.23.2": {
+        "integrity": "sha512-AJ8Ipc/is0v1pefPdRmU+c5D2VOWusLHnQiRT51rrG2LMcXRq5lp5rZGUB1TMbR84EBbTPF3KaH/cA4ntgeHWg==",
         "dependencies": {
           "@babel/core": "@babel/core@7.23.2",
           "@babel/preset-env": "@babel/preset-env@7.23.2_@babel+core@7.23.2",
@@ -1285,7 +1285,7 @@
         "integrity": "sha512-FEVc202+2iuClEhZhrWy6ZiAcRLvNMyYcxZ8raemul1DYVOVdFsbqckWLdsixQZCpJlwe77Z3UTalE7jsjnKfQ==",
         "dependencies": {
           "caniuse-lite": "caniuse-lite@1.0.30001551",
-          "electron-to-chromium": "electron-to-chromium@1.4.559",
+          "electron-to-chromium": "electron-to-chromium@1.4.560",
           "node-releases": "node-releases@2.0.13",
           "update-browserslist-db": "update-browserslist-db@1.0.13_browserslist@4.22.1"
         }
@@ -1332,8 +1332,8 @@
         "integrity": "sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==",
         "dependencies": {}
       },
-      "electron-to-chromium@1.4.559": {
-        "integrity": "sha512-iS7KhLYCSJbdo3rUSkhDTVuFNCV34RKs2UaB9Ecr7VlqzjjWW//0nfsFF5dtDmyXlZQaDYYtID5fjtC/6lpRug==",
+      "electron-to-chromium@1.4.560": {
+        "integrity": "sha512-HhJH/pWAxTaPZl7R3mJ6gCd8MfjQdil9RAWk84qHaLsmPTadydfAmq0a1x8kZtOGQ6pZrWhOYj5uZ8I0meZIgg==",
         "dependencies": {}
       },
       "escalade@3.1.1": {

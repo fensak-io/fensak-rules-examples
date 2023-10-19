@@ -3,7 +3,7 @@ import type {
   IChangeSetMetadata,
   ILineDiff,
   IPatch,
-} from "npm:@fensak-io/reng@^1.2.0";
+} from "npm:@fensak-io/reng@^1.2.1";
 // fensak remove-end
 
 // deno-lint-ignore no-unused-vars
