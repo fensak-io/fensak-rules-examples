@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@fensak-io/reng':
-    specifier: ^1.2.0
-    version: 1.2.0
+    specifier: ^1.2.1
+    version: 1.2.1
   '@jest/globals':
     specifier: ^29.7.0
     version: 29.7.0
@@ -1486,8 +1486,8 @@ packages:
       yaml: 2.3.3
     dev: true
 
-  /@fensak-io/reng@1.2.0:
-    resolution: {integrity: sha512-p0ZxB17XshcNf0rfzSeQkECrPOtoBt6l17FTbFeDXeDjTizgLD9lqW1UjpaAoQ/zcs7+0FQmI1FJ07WonGAs/A==}
+  /@fensak-io/reng@1.2.1:
+    resolution: {integrity: sha512-AJ8Ipc/is0v1pefPdRmU+c5D2VOWusLHnQiRT51rrG2LMcXRq5lp5rZGUB1TMbR84EBbTPF3KaH/cA4ntgeHWg==}
     dependencies:
       '@babel/core': 7.23.2
       '@babel/preset-env': 7.22.20(@babel/core@7.23.2)
