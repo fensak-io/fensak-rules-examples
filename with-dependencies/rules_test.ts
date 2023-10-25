@@ -8,7 +8,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.2.1";
+} from "npm:@fensak-io/reng@^1.3.0";
 
 // NOTE
 // we run the test on the compiled rules, not the source rules, since only the compiled version has all the dependencies
@@ -37,6 +37,7 @@ const readmePatch = {
       newText: "# Fensak Documentation",
     }],
   }],
+  objectDiff: null,
 };
 const configPatch = {
   contentsID: "asdf-1235",
@@ -55,6 +56,7 @@ const configPatch = {
       newText: '  "appVersion": "v1.0.1",',
     }],
   }],
+  objectDiff: null,
 };
 
 Deno.test("No changes", async () => {
