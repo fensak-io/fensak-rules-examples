@@ -12,7 +12,9 @@ const __dirname = new URL(".", import.meta.url).pathname;
 const requiredRuleFn = await Deno.readTextFile(
   `${__dirname}/required_rules.js`,
 );
-const octokit = new Octokit();
+const octokit = new Octokit({
+  auth: Deno.env.get("GITHUB_API_TOKEN"),
+});
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
   name: "test-fensak-rules-engine",
