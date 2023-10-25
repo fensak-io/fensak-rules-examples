@@ -15,7 +15,9 @@ const ruleFn = compileRuleFn(
   await Deno.readTextFile(`${__dirname}/rules.ts`),
   RuleFnSourceLang.Typescript,
 );
-const octokit = new Octokit();
+const octokit = new Octokit({
+  auth: Deno.env.get("GITHUB_API_TOKEN"),
+});
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
   name: "test-fensak-rules-engine",

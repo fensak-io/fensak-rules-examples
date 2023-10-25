@@ -14,7 +14,9 @@ import { Octokit } from "@octokit/rest";
 
 const ruleFnSrc = fs.readFileSync(`${__dirname}/rules.ts`, "utf8");
 const ruleFn = compileRuleFn(ruleFnSrc, RuleFnSourceLang.Typescript);
-const octokit = new Octokit();
+const octokit = new Octokit({
+  auth: process.env.GITHUB_API_TOKEN,
+});
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
   name: "test-fensak-rules-engine",

@@ -11,7 +11,9 @@ import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 const ruleFn = await Deno.readTextFile(`${__dirname}/rules.js`);
-const octokit = new Octokit();
+const octokit = new Octokit({
+  auth: Deno.env.get("GITHUB_API_TOKEN"),
+});
 const testRepo: IGitHubRepository = {
   owner: "fensak-test",
   name: "test-fensak-rules-engine",

@@ -33,7 +33,9 @@ jobs:
         run: |
           deno test --ignore=./json-config-jest \
             --allow-env --allow-read --allow-net \
-            --reporter=junit --junit-path=./report.xml
+            --junit-path=./report.xml
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: report
         uses: mikepenz/action-junit-report@75b84e78b3f0aaea7ed7cf8d1d100d7f97f963ec # v4.0.0
@@ -68,6 +70,8 @@ jobs:
       - name: test
         working-directory: "./json-config-jest"
         run: pnpm test
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: report
         uses: mikepenz/action-junit-report@75b84e78b3f0aaea7ed7cf8d1d100d7f97f963ec # v4.0.0
