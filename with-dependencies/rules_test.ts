@@ -8,7 +8,7 @@ import {
   RuleFnSourceLang,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.3.0";
+} from "npm:@fensak-io/reng@^2.0.0";
 
 // NOTE
 // we run the test on the compiled rules, not the source rules, since only the compiled version has all the dependencies
@@ -21,7 +21,6 @@ const opts = { logMode: RuleLogMode.Console };
 
 // Sample patches
 const readmePatch = {
-  contentsID: "asdf-1234",
   path: "README.md",
   op: PatchOp.Modified,
   additions: 1,
@@ -40,7 +39,6 @@ const readmePatch = {
   objectDiff: null,
 };
 const configPatch = {
-  contentsID: "asdf-1235",
   path: "config.json",
   op: PatchOp.Modified,
   additions: 1,

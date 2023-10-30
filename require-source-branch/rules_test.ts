@@ -1,11 +1,11 @@
 import { assertEquals } from "https://deno.land/std@0.202.0/testing/asserts.ts";
 
 import {
-  IGitHubRepository,
   patchFromGitHubPullRequest,
+  Repository,
   RuleLogMode,
   runRule,
-} from "npm:@fensak-io/reng@^1.3.0";
+} from "npm:@fensak-io/reng@^2.0.0";
 import { Octokit } from "npm:@octokit/rest@^20.0.0";
 
 const __dirname = new URL(".", import.meta.url).pathname;
@@ -15,7 +15,7 @@ const requiredRuleFn = await Deno.readTextFile(
 const octokit = new Octokit({
   auth: Deno.env.get("GITHUB_API_TOKEN"),
 });
-const testRepo: IGitHubRepository = {
+const testRepo: Repository = {
   owner: "fensak-test",
   name: "test-fensak-rules-engine",
 };

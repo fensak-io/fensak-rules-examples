@@ -3,7 +3,7 @@ import fs from "node:fs";
 import { expect, test } from "@jest/globals";
 import {
   compileRuleFn,
-  IGitHubRepository,
+  Repository,
   patchFromGitHubPullRequest,
   RuleFnSourceLang,
   RuleLogMode,
@@ -17,7 +17,7 @@ const ruleFn = compileRuleFn(ruleFnSrc, RuleFnSourceLang.Typescript);
 const octokit = new Octokit({
   auth: process.env.GITHUB_API_TOKEN,
 });
-const testRepo: IGitHubRepository = {
+const testRepo: Repository = {
   owner: "fensak-test",
   name: "test-fensak-rules-engine",
 };
